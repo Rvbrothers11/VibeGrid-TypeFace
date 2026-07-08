@@ -122,3 +122,38 @@ function handleManualInteraction() {
 lyricsContainer.addEventListener('wheel', handleManualInteraction);
 lyricsContainer.addEventListener('touchstart', handleManualInteraction);
 lyricsContainer.addEventListener('mousedown', handleManualInteraction);
+
+resumeBtn.addEventListener('click', () => {
+    isUserScrolling = false;
+    resumeBtn.classList.remove('visible');
+    if (audioPlayer.duration) {
+        const percent = audioPlayer.currentTime / audioPlayer.duration;
+        syncLyricsScroll(percent);
+    }
+});
+
+document.getElementById('progress-container').addEventListener('click', (e) => {
+    if (!audioPlayer.duration) return;
+    const rect = e.target.closest('.progress-container').getBoundingClientRect();
+    const percent = (e.clientX - rect.left) / rect.width;
+    audioPlayer.currentTime = percent * audioPlayer.duration;
+    if (!isUserScrolling) syncLyricsScroll(percent);
+});
+
+async function fetchRealLyrics(artist, title) {
+    lyricsContainer.innerHTML = '<p class="empty-state">Searching for actual lyrics...</p>';
+    try {
+        const response = await fetch(`https://api.lyrics.ovh/v1/${encodeURIComponent(artist)}/${encodeURIComponent(title)}`);
+        const data = await response.json();
+        if (data.lyrics) {
+            lyricsContainer.innerHTML = data.lyrics.replace(/\n/g, '<br>');
+        }
+        else {
+            lyricsContainer.innerHTML = '<p class="empty-state">No lyrics found for this track.</p>';
+        }
+    }
+    catch (err) {
+        lyricsContainer.innerHTML = '<p class="empty-state">Could not load lyrics.</p>'
+    }
+}
+
