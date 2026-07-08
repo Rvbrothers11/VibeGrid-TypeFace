@@ -10,6 +10,7 @@ body, html {
     font-family: 'MyFont', sans-serif;
     color: #f0f0f0;
     overflow: hidden;
+    letter-spacing: 0.5px;
 }
 
 .background-mesh {
@@ -62,12 +63,34 @@ body, html {
     overflow-y: auto;
 }
 
+.empty-state {
+    font-size: 1.1em;
+    color: rgba(255, 255, 255, 0.4);
+    letter-spacing: 1.5px;
+    line-height: 2;
+    text-align: center;
+    padding: 60px 40px;
+    border: 1px dashed rgba(255, 255, 255, 0.1);
+    border-radius: 16px;
+    background: rgba(255, 255, 255, 0.01);
+    margin: auto;
+    max-width: 400px;
+    position: absolute;
+    top: 55%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 80%;
+    max-width: 400px;
+    box-sizing: border-box;
+}
+
 .main-content {
     grid-column: 2;
     grid-row: 1;
     overflow-y: auto;
     display: flex;
     flex-direction: column;
+    position: relative;
 }
 
 .lyrics-panel {
@@ -104,7 +127,7 @@ body, html {
 .menu-section h3 {
     font-size: 0.9em;
     text-transform: uppercase;
-    letter-spacing: 2px;
+    letter-spacing: 3px;
     color: #a981ff;
     margin-bottom: 12px;
 }
@@ -136,16 +159,18 @@ li:hover {
     display: flex;
     gap: 12px;
     margin-bottom: 25px;
+    align-items: center;
 }
 
 .search-bar input {
     flex: 1;
     padding: 14px 18px;
+    height: 48px;
     border-radius: 12px;
     border: 1px solid rgba(255, 255, 255, 0.1);
     background: rgba(0, 0, 0, 0.3);
     color: #fff;
-    font-family: 'CyberFluid', sans-serif;
+    font-family: 'MyFont', sans-serif;
     font-size: 1em;
     outline: none;
 }
@@ -162,7 +187,7 @@ li:hover {
     color: #110a1f;
     cursor: pointer;
     font-weight: bold;
-    font-family: 'CyberFluid', sans-serif;
+    font-family: 'MyFont', sans-serif;
     transition: 0.2s;
 }
 
@@ -261,7 +286,7 @@ li:hover {
     border-radius: 20px;
     font-size: 0.85em;
     font-weight: bold;
-    font-family: 'CyberFluid', sans-serif;
+    font-family: 'MyFont', sans-serif;
     cursor: pointer;
     box-shadow: 0 4px 15px rgba(0, 0, 0, 0.6);
     opacity: 0;
@@ -285,7 +310,9 @@ li:hover {
     display: flex;
     align-items: center;
     gap: 15px;
-    width: 320px;
+    width: auto;
+    max-width: 400px;
+    min-width: 0;
 }
 
 .now-playing img {
@@ -301,12 +328,15 @@ li:hover {
     white-space: nowrap;
     overflow: hidden;
     text-overflow: ellipsis;
-    max-width: 200px;
+    max-width: 320;
+    text-transform: uppercase;
+    letter-spacing: 1px;
 }
 
 .np-artist {
     font-size: 0.8em;
     color: #a0a0a0;
+    letter-spacing: 0.5px;
 }
 
 .controls {
@@ -324,7 +354,7 @@ li:hover {
     padding: 8px 30px;
     border-radius: 20px;
     font-weight: bold;
-    font-family: 'CyberFluid', sans-serif;
+    font-family: 'MyFont', sans-serif;
     cursor: pointer;
     transition: 0.2s;
 }
@@ -358,9 +388,10 @@ li:hover {
     border-radius: 12px;
     cursor: pointer;
     transition: 0.2s;
-    font-family: 'CyberFluid', sans-serif;
+    font-family: 'MyFont', sans-serif;
 }
 
 #add-playlist-btn:hover {
     background: rgba(169, 129, 255, 0.1);
 }
+
