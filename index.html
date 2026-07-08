@@ -47,6 +47,26 @@
             </div>
         </aside>
 
+        <footer class="glass-panel player-bar">
+            <div class="now-playing" id="now-playing">
+                <img id="np-image" src="data:image/gif;base64,R0lGODlhAQABAAD/ACwAAAAAAQABAAACADs=" alt="Cover">
+                <div class="np-info">
+                    <div class="np-title" id="np-title">NO TRACK SELECTED</div>
+                    <div class="np-artist" id="np-artist">Search and click to play</div>
+                </div>
+            </div>
+            <div class="controls">
+                <button id="play-pause-btn">Play</button>
+                <div class="progress-container" id="progress-container">
+                    <div class="progress-bar" id="progress-bar"></div>
+                </div>
+            </div>
+            <div class="actions">
+                <button id="add-playlist-btn">Save to Playlist</button>
+            </div>
+        </footer>
     </div>
+    <audio id="audio-player" style="display: none;"></audio>
+    <script src="script.js"></script>
 </body>
 </html>
