@@ -157,3 +157,29 @@ async function fetchRealLyrics(artist, title) {
     }
 }
 
+document.getElementById('add-playlist-btn').addEventListener('click', () => {
+    if (!activeTrack) return;
+    if (!playlist.find(t => t.trackId === activeTrack.trackId)) {
+        playlist.push(activeTrack);
+        renderSidebarList(playlist, 'playlist-container');
+    }
+});
+
+function addToHistory(track) {
+    if (!history.find(t => t.trackId === track.trackId)) {
+        history.unshift(track);
+        if (history.length > 8) history.pop();
+        renderSidebarList(history, 'history-container');
+    }
+}
+
+function renderSidebarList(list, containerId) {
+    const container = document.getElementById(containerId);
+    container.innerHTML = '';
+    list.forEach(track => {
+        const li = document.createElement('li');
+        li.textContent = track.trackName;
+        li.onclick = () => locktrack(track);
+        container.appendChild(li);
+    });
+}

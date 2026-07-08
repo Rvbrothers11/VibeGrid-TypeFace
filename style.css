@@ -249,29 +249,36 @@ li:hover {
 
 #resume-scroll-btn {
     position: absolute;
-    bottom: 20px;
-    right: 20px;
-    background: rgba(169, 129, 255, 0.9);
+    bottom: 25px;
+    left: 50%;
+    transform: translate(-50%, 10px);
+    background: rgba(15, 15, 25, 0.95);
     backdrop-filter: blur(10px);
     -webkit-backdrop-filter: blur(10px);
-    color: #110a1f;
-    border: none;
-    padding: 10px 20px;
-    border-radius: 30px;
+    color: #a981ff;
+    border: 1px solid #a981ff;
+    padding: 8px 18px;
+    border-radius: 20px;
+    font-size: 0.85em;
     font-weight: bold;
     font-family: 'CyberFluid', sans-serif;
     cursor: pointer;
-    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.5);
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.6);
     opacity: 0;
     pointer-events: none;
-    transform: translateY(20px);
-    transition: all 0.3s ease;
+    transition: transform 0.2s ease, opacity 0.2s ease;
+    z-index: 999;
 }
 
 #resume-scroll-btn.visible {
     opacity: 1;
     pointer-events: auto;
-    transform: translateY(0);
+    transform: translate(-50%, 0);
+}
+
+#resume-scroll-btn:hover {
+    background: #a981ff;
+    color: #110a1f;
 }
 
 .now-playing {
