@@ -246,3 +246,58 @@ li:hover {
     background: rgba(255, 255, 255, 0.2);
     border-radius: 10px;
 }
+
+#resume-scroll-btn {
+    position: absolute;
+    bottom: 20px;
+    right: 20px;
+    background: rgba(169, 129, 255, 0.9);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    color: #110a1f;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 30px;
+    font-weight: bold;
+    font-family: 'CyberFluid', sans-serif;
+    cursor: pointer;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.5);
+    opacity: 0;
+    pointer-events: none;
+    transform: translateY(20px);
+    transition: all 0.3s ease;
+}
+
+#resume-scroll-btn.visible {
+    opacity: 1;
+    pointer-events: auto;
+    transform: translateY(0);
+}
+
+.now-playing {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    width: 320px;
+}
+
+.now-playing img {
+    width: 50px;
+    height: 50px;
+    border-radius: 8px;
+}
+
+.np-title {
+    font-weight: bold;
+    font-size: 1em;
+    margin-bottom: 2px;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    max-width: 200px;
+}
+
+.np-artist {
+    font-size: 0.8em;
+    color: #a0a0a0;
+}
