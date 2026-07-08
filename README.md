@@ -4,8 +4,7 @@
 
 
 VibeGrid is a music discovery web application designed to let you explore fresh tracks and read lyrics without the clutter of modern streaming platforms. 
-
-Built entirely with pure front-end technologies, it offers instant audio previews, dynamic lyric matching, and persistent state logging wrapped inside a modern dark-mode user interface.
+I built this as I really like to listen to songs with their main "climactic" part before listening to the whole song. So I wanted to build this. 
 
 **Features**
 
