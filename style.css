@@ -301,3 +301,59 @@ li:hover {
     font-size: 0.8em;
     color: #a0a0a0;
 }
+
+.controls {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
+}
+
+#play-pause-btn {
+    background: #fff;
+    color: #110a1f;
+    border: none;
+    padding: 8px 30px;
+    border-radius: 20px;
+    font-weight: bold;
+    font-family: 'CyberFluid', sans-serif;
+    cursor: pointer;
+    transition: 0.2s;
+}
+
+#play-pause-btn:hover {
+    transform: scale(1.05);
+}
+
+.progress-container {
+    width: 80%;
+    height: 6px;
+    background: rgba(255, 255, 255, 0.1);
+    border-radius: 3px;
+    cursor: pointer;
+    overflow: hidden;
+}
+
+.progress-bar {
+    height: 100%;
+    background: #a981ff;
+    width: 0%;
+    border-radius: 3px;
+    transition: width 0.1s linear;
+}
+
+#add-playlist-btn {
+    background: transparent;
+    color: #a981ff;
+    border: 1px solid #a981ff;
+    padding: 10px 20px;
+    border-radius: 12px;
+    cursor: pointer;
+    transition: 0.2s;
+    font-family: 'CyberFluid', sans-serif;
+}
+
+#add-playlist-btn:hover {
+    background: rgba(169, 129, 255, 0.1);
+}
