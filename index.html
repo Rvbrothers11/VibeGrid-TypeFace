@@ -26,7 +26,27 @@
                 <ul id="history-container"></ul>
             </div>
         </aside>
-        
+
+        <main class="glass-panel main-content">
+            <div class="search-bar">
+                <input type="text" id="search-input" placeholder="Search any artist or track...">
+                <button id="search-btn">Discover</button>
+            </div>
+            <div class="results-grid" id="results-grid">
+                <div class="empty-state">Search to discover vibrant new music previews...</div>
+            </div>
+        </main>
+
+        <aside class="glass-panel lyrics-panel">
+            <h3>Live Lyrics</h3>
+            <div class="lyrics-wrapper">
+                <div class="lyrics-container" id="lyrics-container">
+                    <p class="empty-state">Click a track to play audio and load real lyrics.</p>
+                </div>
+                <button id="resume-scroll-btn">Resume Sync</button>
+            </div>
+        </aside>
+
     </div>
 </body>
 </html>
