@@ -63,3 +63,62 @@ function handleHoverStop() {
     audioPlayer.src = '';
 }
 
+function lockTrack(track) {
+    activeTrack = track;
+    clearTimeout(hoverTimeout);
+
+    audioPlayer.src = track.previewUrl;
+    audioPlayer.play();
+    updatePlayerUI(track);
+    playPauseBtn.textContent = 'Pause';
+
+    isUserScrolling = false;
+    resumeBtn.classList.remove('visible');
+    addToHistory(track);
+    fetchRealLyrics(track.artistName, track.trackName);
+}
+
+function updatePlayerUI(track) {
+    document.getElementById('np-title').textContent = track.trackName;
+    document.getElementById('np-artist').textContent = track.artistName;
+    document.getElementById('np-image').src = track.artworkUrl100;
+}
+
+playPauseBtn.addEventListener('click', () => {
+    if (!audioPlayer.src) return;
+    if (audioPlayer.paused) {
+        audioPlayer.play();
+        playPauseBtn.textContent = 'Pause';
+    }
+    else {
+        audioPlayer.pause();
+        playPauseBtn.textContent = 'Play';
+    }
+});
+
+audioPlayer.addEventListener('timeupdate', () => {
+    if (audioPlayer.duration) {
+        const percent = (audioPlayer.currentTime / audioPlayer.duration) * 100;
+        progressBar.style.width = percent + '%';
+        if (!isUserScrolling) {
+            syncLyricsScroll(percent / 100);
+        }
+    }
+});
+
+function syncLyricsScroll(progressRatio) {
+    if (lyricsContainer.scrollHeight > lyricsContainer.clientHeight) {
+        const maxScroll = lyricsContainer.scrollHeight - lyricsContainer.clientHeight;
+        lyricsContainer.ScrollTo({top: maxScroll * progressRatio, behaviour: 'smooth' });
+    }
+}
+
+function handleManualInteraction() {
+    if (!activeTrack || audioPlayer.paused) return;
+    isUserScrolling = true;
+    resumeBtn.classList.add('visible');
+}
+
+lyricsContainer.addEventListener('wheel', handleManualInteraction);
+lyricsContainer.addEventListener('touchstart', handleManualInteraction);
+lyricsContainer.addEventListener('mousedown', handleManualInteraction);
