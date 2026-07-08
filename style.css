@@ -1,5 +1,5 @@
 @font-face {
-    font-family: 'CyberFluid';
+    font-family: 'MyFont';
     src: url('./CyberFluid.ttf') format('truetype');
 }
 
@@ -13,7 +13,7 @@ body, html {
 }
 
 .background-mesh {
-    position: flex;
+    position: fixed;
     top: 0;
     left: 0;
     width: 100vw;
@@ -21,18 +21,18 @@ body, html {
     background: linear-gradient(135deg, #0f0c29, #302b63, #24243e);
     background-size: 200% 200%;
     animation: meshGradient 15s ease infinite;
-    z-index: 1;
+    z-index: -1;
 }
 
 @keyframes meshGradient {
-    0% {
-        background-position: 0% 50%;
+    0% { 
+        background-position: 0% 50%; 
     }
-    50% {
+    50% { 
         background-position: 100% 50%;
     }
-    100% {
-        background-position: 0% 50%;
+    100% { 
+        background-position: 0% 50%; 
     }
 }
 
@@ -62,16 +62,16 @@ body, html {
     overflow-y: auto;
 }
 
-.main content {
+.main-content {
     grid-column: 2;
     grid-row: 1;
     overflow-y: auto;
     display: flex;
-    flex-direction: relative;
+    flex-direction: column;
 }
 
 .lyrics-panel {
-    grid-column: 5;
+    grid-column: 3;
     grid-row: 1;
     overflow: hidden;
     display: flex;
@@ -86,4 +86,54 @@ body, html {
     align-items: center;
     justify-content: space-between;
     padding: 15px 25px;
+}
+
+.logo-container {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    margin-bottom: 35px;
+}
+
+.logo-container h2 {
+    margin: 0;
+    font-size: 1.6em;
+    letter-spacing: 2px;
+}
+
+.menu-section h3 {
+    font-size: 0.9em;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    color: #a981ff;
+    margin-bottom: 12px;
+}
+
+ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+li {
+    padding: 10px;
+    margin-bottom: 6px;
+    background: rgba(255, 255, 255, 0.03);
+    border-radius: 8px;
+    cursor: pointer;
+    font-size: 0.9em;
+    transition: 0.2s;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+li:hover {
+    background: rgba(255, 255, 255, 0.1);
+}
+
+.search-bar {
+    display: flex;
+    gap: 12px;
+    margin-bottom: 25px;
 }
