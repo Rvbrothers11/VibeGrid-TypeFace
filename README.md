@@ -23,4 +23,5 @@ Built entirely with pure front-end technologies, it offers instant audio preview
 **## Quick Start / Installation**
  
    Open it on your browser:
-   https://vibe-grid-lilac.vercel.app/
+   https://vibe-grid-type-face.vercel.app/
+   
